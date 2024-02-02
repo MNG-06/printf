@@ -9,9 +9,11 @@ int _printf(const char *format, ...)
 {
 	int i;
 	int sum_len;
-	sum_len = 0;
 	char s;
 	char next_num;
+
+	sum_len = 0;
+
 	for (i = 0; i < _strlen(format); i = i + 1)
 	{
 		s = format[i];
