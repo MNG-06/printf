@@ -8,13 +8,25 @@
 int _printf(const char *format, ...)
 {
 	int i;
-
-	for (i = 0; i < _strlen(format); i++)
+	int sum_len;
+	sum_len = 0;
+	char s;
+	char next_num;
+	for (i = 0; i < _strlen(format); i = i + 1)
 	{
-		char s = format[i];
-
-		_putchar(s);
+		s = format[i];
+		next_num = format[i + 1];
+		if (s == '%' && next_num == '%')
+		{
+			_putchar('%');
+			i = i + 1;
+		}
+		else
+		{
+			_putchar(s);
+		}
+		sum_len = sum_len + 1;
 	}
 	_putchar('\n');
-	return (0);
+	return (sum_len);
 }
