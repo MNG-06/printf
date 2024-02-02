@@ -1,5 +1,6 @@
 _print_test.c
 str_len_test.c 
+test.c
 # Prerequisites
 *.d
 
