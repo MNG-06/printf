@@ -5,7 +5,7 @@
  * @s: a pointer to a string
  * Return: an integer
  */
-int _strlen(char *s)
+int _strlen(const char *s)
 {
 	int chck_len;
 
