@@ -1,20 +1,20 @@
 #include "main.h"
-
-int _printf(char *format, ...)
+/**
+* _printf - a function that gives outputs
+* Description: Prints out a string and returns it len
+* @format: a string variable
+* Return:length of a string
+*/
+int _printf(const char *format, ...)
 {
-    int i;
-    /*
-    args_count = _strlen(format);
+	int i;
 
-    va_list  args;
+	for (i = 0; i < _strlen(format); i++)
+	{
+		char s = format[i];
 
-    va_start(args, format);
-    */
-    for (i = 0; i < _strlen(format); i++)
-    {
-        char s = format[i];
-        _putchar(s);
-    }
-    _putchar('\n');
-    return (0);
+		_putchar(s);
+	}
+	_putchar('\n');
+	return (0);
 }
