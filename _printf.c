@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdarg.h>
 /**
 * _printf - a function that gives outputs
 * Description: Prints out a string and returns it len
@@ -7,10 +8,12 @@
 */
 int _printf(const char *format, ...)
 {
-	int i;
-	int sum_len;
-	char s;
-	char next_num;
+	int i, sum_len;
+	char s, next_num, pc;
+	char *ps;
+	va_list args;
+
+	va_start(args, format);
 
 	sum_len = 0;
 
@@ -23,12 +26,26 @@ int _printf(const char *format, ...)
 			_putchar('%');
 			i = i + 1;
 		}
+		else if (s == '%' && next_num == 's')
+		{
+			ps = va_arg(args, char *);
+			_string(ps, &sum_len);
+			i = i + 1;
+			continue;
+		}
+		else if (s == '%' && next_num == 'c')
+		{
+			pc = va_arg(args, int);
+			/*pc means % c*/
+			_putchar(pc);
+			i = i + 1;
+		}
 		else
 		{
 			_putchar(s);
 		}
 		sum_len = sum_len + 1;
 	}
-	_putchar('\n');
+	va_end(args);
 	return (sum_len);
 }
